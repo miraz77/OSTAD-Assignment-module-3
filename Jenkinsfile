@@ -37,9 +37,13 @@ pipeline {
         }
         success {
             echo 'Build succeeded.'
+            echo '[Slack Placeholder] Build SUCCESS: Would notify #ci-notifications'
+         // slackSend (color: '#36a64f', message: "✅ Build SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}\n${env.BUILD_URL}")
         }
         failure {
             echo 'Build failed.'
+            echo '[Slack Placeholder] Build FAILED: Would notify #ci-notifications'
+         // slackSend (color: '#ff0000', message: "❌ Build FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}\n${env.BUILD_URL}")
         }
     }
 }
