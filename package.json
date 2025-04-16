@@ -4,7 +4,7 @@
 
   "scripts": {
     "start": "node src/server.js",
-    "check": "mocha test/**/*.test.js",
+    "check": "mocha test/**/*.test.js --reporter mocha-junit-reporter --reporter-options mochaFile=./test-results/results.xml",
     "dev": "node src/server.js"
   },
   "dependencies": {

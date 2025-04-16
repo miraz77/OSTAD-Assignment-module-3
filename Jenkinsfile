@@ -12,6 +12,12 @@ pipeline {
             }
         }
 
+        stage('Prepare') {
+            steps {
+                sh 'mkdir -p test-results'
+            }
+        }
+
         stage('Install') {
             steps {
                 sh 'npm install'
@@ -26,6 +32,9 @@ pipeline {
     }
 
     post {
+        always {
+            junit 'test-results/results.xml'
+        }
         success {
             echo 'Build succeeded.'
         }
